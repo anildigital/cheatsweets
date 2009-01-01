@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+		<title> Cheats </title>
+		
+		<style>
+			* {
+		    margin: 0;
+		    padding: 0;
+		  }
+			body {
+         font-family: Verdana,Arial,sans-serif;
+         font-size:14px;
+			}
+			#cheat_block {
+       position:absolute;
+       top: 50px;
+       left: 250px;
+				
+			}
+			#cheat_name {
+				font-weight:bold;
+				margin: 20px 0px 30px 0px;
+			}
+			#cheat_info {
+				
+			}
+		</style>
+</head>
+<body>
+  <div id="cheat_block">
+	<div id="cheat_name">
+	<%= @cheats[0] %>
+	</div>
+	<% @cheats.shift %>
+	<div id="cheat_info">
+	<%= @cheats.join("<br />") %>
+	</div>
+  </div>
+
+  <div style="float:clear">
+     Last viewed cheat was: <%= @cookie %>
+   </div>
+ 
+</body>
+
+
+</html>
