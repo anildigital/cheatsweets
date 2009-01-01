@@ -13,6 +13,8 @@ get "/" do
 
   @cheats =  (`cheat #{current_cheat}`).split("\n")
 
+  @list = "[{text: 'Curious George'}, {text: 'George of the Jungle'}, {text: 'Felix the Cat'}]"
+
   # Reset the cookie
   set_cookie("thing", current_cheat)
   erb :index

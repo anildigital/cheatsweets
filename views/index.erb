@@ -27,9 +27,50 @@
 				
 			}
 		</style>
+    <link rel="stylesheet" href="/stylesheets/jquery.ui.autocomplete.css" type="text/css" media="screen" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript"></script>
+    <script src="/javascripts/jquery.dimensions.js"></script>  
+    <script src="/javascripts/jquery.templating.js"></script>
+    <script src="/javascripts/jquery.ui.autocomplete.ext.js"></script>
+    <script src="/javascripts/jquery.ui.autocomplete.js"></script>
+
+    <script>
+
+             
+      $(function() {
+         var list = <%= @list %> ;
+         $("input.autocomplete").autocomplete({
+          list: list,
+        match: function(typed) {
+          this.typed = typed;
+          this.pre_match = this.text;
+          this.match = this.post_match = '';
+          if (!this.ajax && !typed || typed.length == 0) { return true; }
+          var match_at = this.text.search(new RegExp("\\b" + typed, "i"));
+          if (match_at != -1) {
+            this.pre_match = this.text.slice(0,match_at);
+            this.match = this.text.slice(match_at,match_at + typed.length);
+            this.post_match = this.text.slice(match_at + typed.length);
+            return true;
+          }
+          return false;
+        },
+        insertText: function(obj) { return obj.text },
+        templateText: "<li><span class='matching' ></span></li>"
+      })
+         
+        .bind("activate.autocomplete", function(e, d) { console.log(d); })
+        .bind("cancel.autocomplete", function(e) { console.log("Cancelled"); });
+    });
+
+    </script>
+
 </head>
 <body>
   <div id="cheat_block">
+  <div>
+     <input type="text" class="autocomplete" autocomplete="off" />
+  </div>
 	<div id="cheat_name">
 	<%= @cheats[0] %>
 	</div>
