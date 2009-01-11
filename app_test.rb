@@ -9,6 +9,11 @@ describe :app do
     get_it '/'
     should.be.ok
   end
-
+  
+  it "should show page" do
+    get_it '/query?cheat=emacs'
+    should.be.ok
+  end
+  
 end
 
