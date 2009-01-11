@@ -29,6 +29,10 @@ get "/query/:cheat" do
   current_cheat = params[:cheat]
   @cookie = request.cookies["last_cheat"]
 
+  if current_cheat == @cookie
+    redirect "/"
+  end
+
   @cheats =  (`cheat #{current_cheat}`).split("\n")
 
   # Reset the cookie
