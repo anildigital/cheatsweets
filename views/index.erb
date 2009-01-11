@@ -104,7 +104,7 @@
   
 <div id="last_viewed_cheat">
   <% if !@cookie.nil? and @cookie != "" %>
-  Last viewed cheat was: <a href="/query/<%= @cookie %>" ><%= @cookie %> </a>
+  Last viewed cheat was: <a href="/query/<%= @cookie.strip %>" ><%= @cookie %> </a>
   <% end %>
 </div>
 
