@@ -145,6 +145,8 @@
         var oAC = new YAHOO.widget.AutoComplete("myInput", "myContainer", oDS);
         oAC.prehighlightClassName = "yui-ac-prehighlight";
         oAC.useShadow = true;
+        oAC.animSpeed = 0.1;
+        oAC.queryDelay = 0.1;
 
         oAC.itemSelectEvent.subscribe(open_url); 
 
