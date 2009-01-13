@@ -11,7 +11,7 @@ describe :app do
   end
   
   it "should show page" do
-    get_it '/query?cheat=emacs'
+    get_it '/query/emacs'
     should.be.ok
   end
   
