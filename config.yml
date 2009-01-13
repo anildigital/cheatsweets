@@ -1,0 +1,13 @@
+environment: production
+chdir: ~/public_html/cheatsweets
+address: 127.0.0.1
+user: anil
+group: anil
+port: 4567
+pid: ~/public_html/cheatsweets/thin.pid
+rackup: ~/public_html/cheatsweets/config.ru
+log: ~/public_html/cheatsweets/thin.log
+max_conns: 1024
+timeout: 30
+max_persistent_conns: 512
+daemonize: true
